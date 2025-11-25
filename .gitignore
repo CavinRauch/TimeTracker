@@ -1,0 +1,74 @@
+# Visual Studio / .NET
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build outputs
+bin/
+obj/
+out/
+publish/
+
+# Rider
+.idea/
+*.sln.iml
+
+# VS Code
+.vscode/
+
+# NuGet
+*.nupkg
+packages/
+.nuget/
+
+# EF Core migrations snapshot files (optional)
+**/Migrations/**/ModelSnapshot.cs
+
+# User secrets
+secrets.json
+secrets.*.json
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# SQLite and DB artifacts
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# Local environment files
+.env
+.env.local
+appsettings.Local.json
+appsettings.Development.json
+
+# Test results
+TestResults/
+*.trx
+coverage/
+coverage.*.xml
+
+# Generated files
+*.g.cs
+*.Designer.cs
+*.generated.cs
+
+# JetBrains Rider caches
+.idea/
+*.sln.iml
+
+# Ignore published web artifacts
+wwwroot/
+node_modules/
+
+# Ignore temporary files
+*.tmp
+*.temp
