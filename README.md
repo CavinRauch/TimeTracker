@@ -41,3 +41,10 @@ dotnet run --project Timetracker.UI.Wpf
 ```bash
 dotnet test
 ```
+
+### Future Plans
+Core user-facing features
+- **System tray icon** with quick actions to Start, Stop, Pause, and open the main window.
+- **Start / Stop / Pause** controls for tracking time entries with immediate visual feedback in the tray and main UI.
+- **Stop prompt** that optionally appears on Stop or Stop+Start to collect a description and key/value metadata for the entry.
+- Hotkeys: **Ctrl+F1** for Stop+Start and **Ctrl+F2** for Stop, with an option to show or skip the Stop prompt when triggered.

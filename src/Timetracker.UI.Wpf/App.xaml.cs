@@ -25,15 +25,15 @@ namespace Timetracker.UI.Wpf
                     services.AddSingleton<ICachedDbSets, CachedDbSets>();
 
                     services.AddSingleton<IClock, SystemClock>();
-                    //services.AddSingleton<ITimeEntryService, MemoryTimeEntryService>();
                     services.AddSingleton<ITimeEntryService, DbTimeService>();
 
                     services.AddSingleton<AppHotkeyHandler>();
                     services.AddSingleton<HotkeyHandler>();
                     services.AddSingleton<DashboardViewModel>();
 
-                    // Register MainWindow so DI can construct it (use singleton if you want single instance)
                     services.AddSingleton<MainWindow>();
+
+                    services.BuildServiceProvider();
                 })
                 .Build();
         }

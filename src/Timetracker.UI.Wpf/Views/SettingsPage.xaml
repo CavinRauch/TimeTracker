@@ -1,0 +1,25 @@
+<UserControl x:Class="Timetracker.UI.Wpf.Views.SettingsPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Timetracker.UI.Wpf.ViewModels">
+    <UserControl.DataContext>
+        <vm:SettingsViewModel />
+    </UserControl.DataContext>
+
+    <Grid Margin="12">
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <CheckBox IsChecked="{Binding PromptOnStop, Mode=TwoWay}" Content="Show prompt on Stop" />
+                <TextBlock Text="{Binding IsSaving, Converter={StaticResource BoolToSavingTextConverter}}"
+                           VerticalAlignment="Center" />
+            </StackPanel>
+
+            <!-- future fields for DefaultMetadataJson editing can go here -->
+            <!--
+            NOT DONE
+            Note: If you prefer viewmodel injection via DI, remove the DataContext block and set DataContext in code behind or via a view locator. 
+            Add a small BoolToSavingTextConverter or replace the TextBlock with a simple indicator.
+            -->
+        </StackPanel>
+    </Grid>
+</UserControl>
