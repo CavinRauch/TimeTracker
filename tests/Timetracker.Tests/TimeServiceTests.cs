@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using NSubstitute;
 using Timetracker.Core;
+using Timetracker.Core.Services;
 
 namespace Timetracker.Tests
 {
@@ -97,7 +98,7 @@ namespace Timetracker.Tests
 
             // Assert: only one persisted entry exists in recent history
             var recent = await svc.GetRecentAsync(10);
-            Assert.Equal(1, recent.Length);
+            Assert.Single(recent);
             Assert.NotNull(svc.Current);
         }
     }

@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using Timetracker.Infrastructure.Context;
 
-namespace Timetracker.Infrastructure.Context;
+namespace Timetracker.Infrastructure.Caching;
 
 public interface ICachedDbSets
 {
@@ -12,7 +13,7 @@ public interface ICachedDbSets
     /// </summary>
     Task ExecuteInTransactionAsync(Func<TimetrackerDbContext, Task> operation);
 
-    Task ExecuteInTransactionAsync<T>(Func<DbSet<T>, Task> operation) where T : class;
+    Task ExecuteInTransactionAsync<T>(Func<TimetrackerDbContext, DbSet<T>, Task> operation) where T : class;
 
     /// <summary>
     /// Refresh all cached sets from the database.

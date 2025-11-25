@@ -1,4 +1,4 @@
-namespace Timetracker.Infrastructure.Context;
+namespace Timetracker.Infrastructure.Caching;
 
 public interface ICachedSet<T> where T : class
 {

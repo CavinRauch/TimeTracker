@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Timetracker.Core;
 using Timetracker.Infrastructure;
+using Timetracker.Infrastructure.Caching;
 using Timetracker.Infrastructure.Context;
 using Timetracker.UI.Wpf.Services;
 using Timetracker.UI.Wpf.ViewModels;
@@ -25,7 +26,7 @@ namespace Timetracker.UI.Wpf
 
                     services.AddSingleton<IClock, SystemClock>();
                     //services.AddSingleton<ITimeEntryService, MemoryTimeEntryService>();
-                    services.AddSingleton<ITimeEntryService, DbTimeEntryService>();
+                    services.AddSingleton<ITimeEntryService, DbTimeService>();
 
                     services.AddSingleton<AppHotkeyHandler>();
                     services.AddSingleton<HotkeyHandler>();

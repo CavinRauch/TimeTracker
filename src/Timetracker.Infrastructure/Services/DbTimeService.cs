@@ -1,11 +1,11 @@
 using System.Text.Json;
 using Timetracker.Core;
-using Timetracker.Infrastructure.Context;
+using Timetracker.Infrastructure.Caching;
 using Timetracker.Infrastructure.Entities;
 
 namespace Timetracker.Infrastructure
 {
-    public class DbTimeEntryService : ITimeEntryService, IDisposable
+    public class DbTimeService : ITimeEntryService, IDisposable
     {
         private readonly ICachedDbSets _cachedDbSets;
         private readonly IClock _clock;
@@ -15,7 +15,7 @@ namespace Timetracker.Infrastructure
         private TimeEntry? _current;
         private int _stopStartInProgress;
 
-        public DbTimeEntryService(IClock clock, ICachedDbSets cachedDbSets)
+        public DbTimeService(IClock clock, ICachedDbSets cachedDbSets)
         {
             _clock = clock ?? throw new ArgumentNullException(nameof(clock));
             _cachedDbSets = cachedDbSets ?? throw new ArgumentNullException(nameof(cachedDbSets));

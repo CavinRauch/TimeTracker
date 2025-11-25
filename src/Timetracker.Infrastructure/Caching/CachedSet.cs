@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using Timetracker.Infrastructure.Context;
 
-namespace Timetracker.Infrastructure.Context;
+namespace Timetracker.Infrastructure.Caching;
 
 public class CachedSet<T> : ICachedSet<T>, IDisposable where T : class
 {

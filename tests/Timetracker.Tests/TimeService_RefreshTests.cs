@@ -1,5 +1,5 @@
 using FluentAssertions;
-using Timetracker.Core;
+using Timetracker.Core.Services;
 using Timetracker.UI.Wpf.ViewModels;
 
 namespace Timetracker.Tests

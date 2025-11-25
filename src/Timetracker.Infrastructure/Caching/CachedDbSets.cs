@@ -1,7 +1,8 @@
 using System.Collections.Concurrent;
 using Microsoft.EntityFrameworkCore;
+using Timetracker.Infrastructure.Context;
 
-namespace Timetracker.Infrastructure.Context;
+namespace Timetracker.Infrastructure.Caching;
 
 public class CachedDbSets : ICachedDbSets, IDisposable
 {
@@ -51,7 +52,7 @@ public class CachedDbSets : ICachedDbSets, IDisposable
         await RefreshAllAsync().ConfigureAwait(false);
     }
 
-    public async Task ExecuteInTransactionAsync<T>(Func<DbSet<T>, Task> operation) where T : class
+    public async Task ExecuteInTransactionAsync<T>(Func<TimetrackerDbContext, DbSet<T>, Task> operation) where T : class
     {
         if (operation == null) throw new ArgumentNullException(nameof(operation));
 
@@ -61,7 +62,7 @@ public class CachedDbSets : ICachedDbSets, IDisposable
         try
         {
             // give caller the typed DbSet<T> from this DbContext
-            await operation(db.Set<T>()).ConfigureAwait(false);
+            await operation(db, db.Set<T>()).ConfigureAwait(false);
 
             await db.SaveChangesAsync().ConfigureAwait(false);
             await tx.CommitAsync().ConfigureAwait(false);
